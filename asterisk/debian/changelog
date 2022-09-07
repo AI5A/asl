@@ -1,3 +1,9 @@
+asl-asterisk (1:1.4.23-10) UNRELEASED; urgency=medium
+
+  * Building for bullseye
+
+ -- Rick Elrod <me@ai5a.net>  Tue, 06 Sep 2022 23:35:31 -0500
+
 asl-asterisk (1:1.4.23-9) UNRELEASED; urgency=medium
 
   * Fix systemd service names
