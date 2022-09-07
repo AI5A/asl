@@ -1,0 +1,74 @@
+---
+name: build asl
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - arch: armv7l
+            cpu: cortex-a7
+            base_image: raspios_lite:latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Grab asl-dahdi artifacts
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          github_token: ${{secrets.GITHUB_TOKEN}}
+          workflow: build.yml
+          workflow_conclusion: success
+          branch: fixes
+          name: asl-dahdi
+          repo: AI5A/asl-dahdi
+          path: dahdi
+
+      - uses: pguyot/arm-runner-action@v2
+        with:
+          image_additional_mb: 4096
+          base_image: ${{ matrix.base_image }}
+          cpu: ${{ matrix.cpu }}
+          copy_artifact_path: "*.deb;*.build;*.buildinfo;*.changes"
+          commands: |
+            apt-get update
+
+            apt-get install -y libnewt-dev build-essential devscripts fakeroot \
+                debhelper automake autotools-dev pkg-config ca-certificates \
+                libreadline-gplv2-dev libgsm1-dev libssl-dev \
+                libasound2-dev libpq-dev unixodbc-dev libpri-dev libvpb-dev \
+                libsqlite-dev libspeex-dev libspeexdsp-dev graphviz \
+                libcurl4-openssl-dev doxygen libpopt-dev libiksemel-dev \
+                freetds-dev libvorbis-dev libsnmp-dev libcap-dev libi2c-dev \
+                libjansson-dev ncurses-dev libusb-dev fxload gawk dkms \
+                module-assistant quilt gsfonts
+
+            cd /asl/dahdi
+            dpkg -i asl-dahdi_*.deb asl-dahdi-dkms_*.deb asl-dahdi-linux_*.deb \
+              asl-dahdi-source_*.deb libtonezone2.0_*.deb \
+              libtonezone-dev_*.deb
+            apt-get install -y --fix-broken
+
+            cd /asl/asterisk
+            ./bootstrap.sh
+            ./configure
+            debuild -b -uc -us
+
+            cd /asl/allstar
+            debuild -b -uc -us
+
+
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: allstarlink
+          path: |
+            *.deb
+            *.build
+            *.buildinfo
+            *.changes
