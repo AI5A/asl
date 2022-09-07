@@ -552,7 +552,9 @@ ASTERISK_FILE_VERSION(__FILE__,"$Revision$")
 #include <sys/time.h>
 #include <sys/file.h>
 #include <sys/ioctl.h>
+#ifndef __arm__
 #include <sys/io.h>
+#endif
 #include <sys/vfs.h>
 #include <math.h>
 #include <netinet/in.h>

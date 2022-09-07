@@ -70,7 +70,9 @@
 #include <string.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
+#ifndef __arm__
 #include <sys/io.h>
+#endif
 #include <fcntl.h>
 #include <sys/time.h>
 #include <stdlib.h>

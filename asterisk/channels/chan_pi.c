@@ -48,7 +48,9 @@ ASTERISK_FILE_VERSION(__FILE__,"$Revision$")
 #include <math.h>
 #include <string.h>
 #include <unistd.h>
+#ifndef __arm__
 #include <sys/io.h>
+#endif
 #include <sys/ioctl.h>
 #include <fcntl.h>
 #include <sys/time.h>
