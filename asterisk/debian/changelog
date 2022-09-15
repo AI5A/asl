@@ -1,3 +1,10 @@
+asl-asterisk (10:1.4.23-11) UNRELEASED; urgency=medium
+
+  * Change morse id max bound
+  * Change hang timer for telemetry
+
+ -- Rick Elrod <me@ai5a.net>  Thu, 15 Sep 2022 15:18:13 -0500
+
 asl-asterisk (1:1.4.23-10) UNRELEASED; urgency=medium
 
   * Building for bullseye
