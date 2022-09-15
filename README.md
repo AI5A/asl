@@ -14,6 +14,9 @@ Current changes (asl):
 - Fix for https://github.com/AllStarLink/ASL-Asterisk/issues/5
 - Fix to build on bullseye
   (https://github.com/AI5A/asl/commit/f456546a49030b6ea0b1ea9b43966801e8300690)
+- Eliminate morse speed limit (set the max to 70wpm)
+- Lower telemetry hang time to 15 seconds instead of 120.
+
 
 Current changes (asl-dahdi):
 
