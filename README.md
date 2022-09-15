@@ -1,79 +1,29 @@
 # Asterisk Source for AllStarLink
 
-This is the Asterisk source package for AllStarLink and the files to build the ASL 2.0.0+ distribution.
+# AI5A/asl
 
----------------------------------------------------------------------------------------------------------------------------------
+This is a *lightly* modified fork of AllStarLink.
 
-AllStarLink Wiki: https://wiki.allstarlink.org
+Debian Buster (10) and Bullseye (11) packages are made available for armhf
+(Raspberry Pi), by a repository generated in
+[AI5A/asl-pkgs](https://github.com/AI5A/asl-pkgs). The README.md file there
+explains how to enable the repository.
 
-AllStarLink Community Forum: https://community.allstarlink.org/
+Current changes (asl):
 
-AllStarLink Portal:  https://www.allstarlink.org
+- Fix for https://github.com/AllStarLink/ASL-Asterisk/issues/5
+- Fix to build on bullseye
+  (https://github.com/AI5A/asl/commit/f456546a49030b6ea0b1ea9b43966801e8300690)
 
-AllStarLink Node Stats:  https://stats.allstarlink.org
+Current changes (asl-dahdi):
 
----------------------------------------------------------------------------------------------------------------------------------
+- Allow the asl-dahdi dkms to build on buster+ without needing hacks
+  (https://github.com/AllStarLink/ASL-DAHDI/pull/1)
 
-## Prerequisites
+Current changes (asl-update-node-list):
 
-#### Debian 10 Buster
-
-* Install the ASL Repo
-
-<pre>
-echo "deb http://apt.allstarlink.org/repos/asl_builds buster main" > /etc/apt/sources.list.d/allstar.list
-curl -s http://apt.allstarlink.org/repos/repo_signing.key | sudo apt-key add -
-apt update</pre>
-</pre>
-
-* Install apt dependencies
-```
-apt -y install quilt libreadline-gplv2-dev libgsm1-dev libssl-dev libasound2-dev libpq-dev \
-  unixodbc-dev libpri-dev libvpb-dev asl-dahdi-source libnewt-dev libsqlite-dev libspeex-dev \
-  libspeexdsp-dev libcurl4-openssl-dev libpopt-dev libiksemel-dev freetds-dev libvorbis-dev \
-  libsnmp-dev libcap-dev libi2c-dev libjansson-dev build-essential libtonezone-dev \
-  git cmake g++ libboost-all-dev libgmp-dev swig python3-numpy asl-dahdi-source libusb-dev
-```
-
-## Compiling
-Packaging (.deb)
-
-This will compile and package AllStar into .deb files. You do not need to run configure or make before doing this.
-
-```
-git clone https://github.com/AllStarLink/ASL-Asterisk.git
-cd ASL-Asterisk/asterisk
-debuild -b -us -uc
-```
-
-.debs will appear in the repository root folder after compiling and packaging
-
-Manually
-```
-git clone https://github.com/AllStarLink/ASL-Asterisk.git
-cd ASL-Asterisk/asterisk
-./configure
-make
-make install
-```
-
-If all goes well, you will have cloned, configured, compiled and installed the Astersisk 1.4.23pre and app_rpt suite of programs that comprise the ASL 2.0.0+ release onto your system.
-
----------------------------------------------------------------------------------------------------------------------------------
-
-## Help
-
-Community Forum: https://community.allstarlink.org/
-
-AllStarLink Wiki: http://wiki.allstarlink.org
-
-E-Mail: developers@allstarlink.org
-
----------------------------------------------------------------------------------------------------------------------------------
-
-## Contributing
-
-Please refer to the [Contributing](https://wiki.allstarlink.org/wiki/Contributing) page on the AllStarLink Wiki.
+- Use https instead of http for syncing
+  (https://github.com/AI5A/asl-update-node-list/commit/ee668e8b4623f1dfae6029a6a1900ff20c3d4be2)
 
 ## Copyright
 
