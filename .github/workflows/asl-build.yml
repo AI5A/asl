@@ -2,6 +2,7 @@
 name: build asl
 on:
   push:
+  workflow_dispatch:
 
 jobs:
   build:
