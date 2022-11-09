@@ -1,6 +1,7 @@
 FROM debian:11
 
-RUN apt-get update && \
+RUN export DEBIAN_FRONTEND=noninteractive && \
+  apt-get update && \
   apt-get install -y libnewt-dev build-essential devscripts fakeroot \
   debhelper automake autotools-dev pkg-config ca-certificates \
   libreadline-dev libgsm1-dev libssl-dev \
