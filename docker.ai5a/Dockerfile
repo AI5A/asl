@@ -17,7 +17,7 @@ COPY dahdi /tmp/dahdi
 WORKDIR /tmp/dahdi
 RUN dpkg -i asl-dahdi*.deb asl-dahdi-dkms*.deb asl-dahdi-linux*.deb \
   asl-dahdi-source*.deb libtonezone2.0_*.deb \
-  libtonezone-dev_*.deb && \
+  libtonezone-dev_*.deb ; \
   apt-get install -y --fix-broken
 
 COPY entrypoint.sh /entrypoint.sh
