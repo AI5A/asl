@@ -1,5 +1,5 @@
 ---
-name: build asl
+name: build asl (armv7l)
 on:
   push:
   workflow_dispatch:
@@ -27,7 +27,7 @@ jobs:
         id: download-artifact
         uses: dawidd6/action-download-artifact@v2
         with:
-          github_token: ${{secrets.GITHUB_TOKEN}}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           workflow: build.yml
           workflow_conclusion: success
           branch: fixes
@@ -71,7 +71,7 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v3
         with:
-          name: allstarlink-${{ matrix.codename }}
+          name: allstarlink-${{ matrix.codename }}-${{ matrix.arch }}
           path: |
             *.deb
             *.build
