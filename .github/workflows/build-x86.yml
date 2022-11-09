@@ -22,7 +22,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          workflow: build.yml
+          workflow: build-x86.yml
           workflow_conclusion: success
           branch: fixes
           name: asl-dahdi-${{ matrix.codename }}-x86_64
