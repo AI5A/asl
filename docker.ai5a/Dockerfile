@@ -12,7 +12,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   libjansson-dev ncurses-dev libusb-dev fxload gawk dkms \
   module-assistant quilt gsfonts
 
-WORKDIR /asl/dahdi
+COPY ../dahdi /tmp/dahdi
+
+WORKDIR /tmp/dahdi
 RUN dpkg -i asl-dahdi*.deb asl-dahdi-dkms*.deb asl-dahdi-linux*.deb \
   asl-dahdi-source*.deb libtonezone2.0_*.deb \
   libtonezone-dev_*.deb && \
