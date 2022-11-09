@@ -27,7 +27,7 @@ jobs:
           branch: fixes
           name: asl-dahdi-${{ matrix.codename }}-x86_64
           repo: AI5A/asl-dahdi
-          path: dahdi
+          path: docker.ai5a/dahdi
 
       - name: Build the docker builder image
         run: |

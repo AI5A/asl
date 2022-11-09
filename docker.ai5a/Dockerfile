@@ -12,7 +12,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
   libjansson-dev ncurses-dev libusb-dev fxload gawk dkms \
   module-assistant quilt gsfonts
 
-COPY ../dahdi /tmp/dahdi
+COPY dahdi /tmp/dahdi
 
 WORKDIR /tmp/dahdi
 RUN dpkg -i asl-dahdi*.deb asl-dahdi-dkms*.deb asl-dahdi-linux*.deb \
