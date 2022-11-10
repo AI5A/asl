@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+set -e
+
 cd asterisk
 ./bootstrap.sh && ./configure && debuild -b -uc -us
 

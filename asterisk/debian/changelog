@@ -1,3 +1,10 @@
+asl-asterisk (10:1.4.23-12) UNRELEASED; urgency=medium
+
+  * Fix dependencies for amd64 bullseye
+  * build against new dahdi that disables vpmadt032 for now
+
+ -- Rick Elrod <me@ai5a.net>  Wed, 09 Nov 2022 23:18:51 -0600
+
 asl-asterisk (10:1.4.23-11) UNRELEASED; urgency=medium
 
   * Change morse id max bound
