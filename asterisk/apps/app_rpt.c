@@ -22555,8 +22555,7 @@ char *this,*val;
 		}
 		if (rpt_vars[i].p.ident && (!*rpt_vars[i].p.ident))
 		{
-			ast_log(LOG_WARNING,"Did not specify ident for node %s\n",rpt_vars[i].name);
-			ast_config_destroy(cfg);
+			ast_log(LOG_ERROR,"Did not specify ident for node %s\n",rpt_vars[i].name);
 			pthread_exit(NULL);
 		}
 		rpt_vars[i].ready = 0;
