@@ -1,3 +1,9 @@
+asl-asterisk (10:1.4.23-13) UNRELEASED; urgency=medium
+
+  * Fix double-free segfault when idrecording option is empty
+
+ -- Rick Elrod <me@ai5a.net>  Fri, 25 Nov 2022 00:24:21 -0600
+
 asl-asterisk (10:1.4.23-12) UNRELEASED; urgency=medium
 
   * Fix dependencies for amd64 bullseye
