@@ -353,6 +353,9 @@
 /* Define if your system has pthread_rwlock_timedwrlock() */
 #undef HAVE_PTHREAD_RWLOCK_TIMEDWRLOCK
 
+/* Have PTHREAD_PRIO_INHERIT. */
+#undef HAVE_PTHREAD_PRIO_INHERIT
+
 /* Define to 1 if the system has the type `ptrdiff_t'. */
 #undef HAVE_PTRDIFF_T
 
