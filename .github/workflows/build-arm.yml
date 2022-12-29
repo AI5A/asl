@@ -31,7 +31,7 @@ jobs:
           workflow: build.yml
           workflow_conclusion: success
           branch: fixes
-          name: asl-dahdi-${{ matrix.codename }}
+          name: asl-dahdi-${{ matrix.codename }}-${{ matrix.arch }}
           repo: AI5A/asl-dahdi
           path: dahdi
 
