@@ -59,9 +59,7 @@ jobs:
               asl-dahdi-source_*.deb libtonezone2.0_*.deb \
               libtonezone-dev_*.deb || true
 
-            if [[ -f /var/lib/dkms/asl-dahdi/*/build/make.log ]]; then \
-                cat /var/lib/dkms/asl-dahdi/*/build/make.log; \
-            fi
+            cat /var/lib/dkms/asl-dahdi/*/build/make.log || true
 
             apt-get install -y --fix-broken
 
