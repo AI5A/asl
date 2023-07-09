@@ -57,7 +57,12 @@ jobs:
             cd /asl/dahdi
             dpkg -i asl-dahdi_*.deb asl-dahdi-dkms_*.deb asl-dahdi-linux_*.deb \
               asl-dahdi-source_*.deb libtonezone2.0_*.deb \
-              libtonezone-dev_*.deb
+              libtonezone-dev_*.deb || true
+
+            if [[ -f /var/lib/dkms/asl-dahdi/*/build/make.log ]]; then \
+                cat /var/lib/dkms/asl-dahdi/*/build/make.log; \
+            fi
+
             apt-get install -y --fix-broken
 
             cd /asl/asterisk
