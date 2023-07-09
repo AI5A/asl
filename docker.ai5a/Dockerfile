@@ -19,7 +19,10 @@ WORKDIR /tmp/dahdi
 RUN dpkg -i asl-dahdi*.deb asl-dahdi-dkms*.deb asl-dahdi-linux*.deb \
   asl-dahdi-source*.deb libtonezone2.0_*.deb \
   libtonezone-dev_*.deb ; \
-  apt-get install -y --fix-broken
+  apt-get install -y --fix-broken ; \
+  if [[ -f /var/lib/dkms/asl-dahdi/*/build/make.log ]]; then \
+    cat /var/lib/dkms/asl-dahdi/*/build/make.log; \
+  fi
 
 COPY entrypoint.sh /entrypoint.sh
 
