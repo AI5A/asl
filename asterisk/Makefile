@@ -218,7 +218,7 @@ ASTCFLAGS+=-Wall -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations
 UNAME_M:=$(shell uname -m)
 ifeq ($(UNAME_M),armv7l)
   ASTCFLAGS+=-lpthread -Wno-unused-result
-  AST_LIBS+=-lpthread -ldl
+  AST_LIBS+=-lpthread -ldl -lresolv
 endif
 
 ifeq ($(AST_DEVMODE),yes)
