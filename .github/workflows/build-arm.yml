@@ -14,12 +14,16 @@ jobs:
         include:
           - arch: armv7l
             cpu: cortex-a7
-            base_image: raspios_lite:latest
+            base_image: raspios_lite:2023-05-03
             codename: bullseye
           - arch: armv7l
             cpu: cortex-a7
             base_image: raspios_lite:2021-05-07
             codename: buster
+          - arch: armv7l
+            cpu: cortex-a7
+            base_image: raspios_lite:latest
+            codename: bookworm
     steps:
       - uses: actions/checkout@v2
 
@@ -35,7 +39,7 @@ jobs:
           repo: AI5A/asl-dahdi
           path: dahdi
 
-      - uses: pguyot/arm-runner-action@v2
+      - uses: pguyot/arm-runner-action@main
         with:
           image_additional_mb: 4096
           base_image: ${{ matrix.base_image }}
