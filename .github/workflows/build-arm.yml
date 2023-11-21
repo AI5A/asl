@@ -57,6 +57,7 @@ jobs:
                 freetds-dev libvorbis-dev libsnmp-dev libcap-dev libi2c-dev \
                 libjansson-dev ncurses-dev libusb-dev fxload gawk dkms \
                 module-assistant quilt gsfonts
+            apt-get install -y dh-dkms || true
 
             cd /asl/dahdi
             dpkg -i asl-dahdi_*.deb asl-dahdi-dkms_*.deb asl-dahdi-linux_*.deb \
