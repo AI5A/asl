@@ -1,3 +1,9 @@
+asl-asterisk (10:1.4.23-14) UNRELEASED; urgency=medium
+
+  * Enable MALLOC_DEBUG
+
+ -- Rick Elrod <me@ai5a.net>  Sun, 26 Nov 2023 21:46:12 -0600
+
 asl-asterisk (10:1.4.23-13) UNRELEASED; urgency=medium
 
   * Fix double-free segfault when idrecording option is empty

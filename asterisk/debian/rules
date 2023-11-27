@@ -86,6 +86,7 @@ config.status: check-sounds patch
 menuselect.makeopts: config.status
 	$(FETCH_ENV) $(MAKE) $(BUILDFLAGS) menuselect.makeopts
 	sed -i -e '/^MENUSELECT_MOH=/d' menuselect.makeopts
+	sed -i 's/^MENUSELECT_CFLAGS=.*/& MALLOC_DEBUG/' menuselect.makeopts
 
 	cat menuselect.makedeps
 	cat menuselect.makeopts
